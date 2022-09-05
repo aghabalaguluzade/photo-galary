@@ -1,5 +1,2 @@
 # photo-galary
 
-
-
-# photo-galary
