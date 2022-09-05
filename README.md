@@ -1,2 +1,2 @@
 # photo-galary
-#node js
+#node
