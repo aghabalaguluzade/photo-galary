@@ -2,8 +2,8 @@
 
 
 ## Concepts I learned and used in this project
-Node.JS CRUD Operations \n
-Request - Response
+ Node.JS CRUD Operations
+ Request - Response
 Middleware Concepts
 Routing
 MVC Structure
