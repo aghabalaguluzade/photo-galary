@@ -16,8 +16,15 @@ const userRegister = (req,res) => {
      });
 };
 
+const userLogin = (req,res) => {
+     res.render("login", {
+          link : "login"
+     });
+}
+
 export {
      getIndexPage,
      getAboutPage,
-     userRegister
+     userRegister,
+     userLogin
 };
