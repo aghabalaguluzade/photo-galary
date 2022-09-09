@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 import conn from './db.js';
 import pageRoute from "./routes/pageRouter.js";
 import photoRoute from "./routes/photoRouter.js";
@@ -24,6 +25,7 @@ app.use(express.static("public"));
 //express json
 app.use(express.json());
 app.use(express.urlencoded({ extended : true }));
+app.use(cookieParser());
 
 //routes
 app.use("/", pageRoute);
