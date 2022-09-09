@@ -20,11 +20,20 @@ const userLogin = (req,res) => {
      res.render("login", {
           link : "login"
      });
-}
+};
+
+const getLogout = (req,res) => {
+     res.cookie("jsonwebtoken","",{
+          maxAge : 1
+     });
+     res.redirect("/");
+};
+
 
 export {
      getIndexPage,
      getAboutPage,
      userRegister,
-     userLogin
+     userLogin,
+     getLogout
 };

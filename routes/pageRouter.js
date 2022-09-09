@@ -8,5 +8,6 @@ router.route("/").get(autMiddleware.authenticateToken, pageController.getIndexPa
 router.route("/about").get(pageController.getAboutPage);
 router.route("/register").get(pageController.userRegister);
 router.route("/login").get(pageController.userLogin);
+router.route("/logout").get(pageController.getLogout);
 
 export default router;
