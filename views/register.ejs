@@ -25,11 +25,20 @@
                       <input class="form_control" placeholder="Your Username" type="text" name="username" /> 
                     </div>
                     <div class="col-md-12">
+                      <div style="display: none;" class="alert alert-danger" id="username"></div>
+                   </div>
+                    <div class="col-md-12">
                       <input class="form_control" placeholder="Your Email" type="email" name="email" />                          
                     </div>
                     <div class="col-md-12">
+                      <div style="display: none;" class="alert alert-danger" id="email"></div>
+                   </div>
+                    <div class="col-md-12">
                      <input class="form_control" placeholder="Your Password" type="password" name="password" />                          
                    </div>
+                   <div class="col-md-12">
+                    <div style="display: none;" class="alert alert-danger" id="password"></div>
+                  </div>
                     <div class="col-md-12">
                       <div class="group_form">
                         <button class="send_btn">Register</button>
@@ -42,5 +51,42 @@
           </div>
         </div>
       <!-- end contact -->
-  
+
+      <script>
+        const form = document.querySelector("form");
+        const usernameError = document.getElementById("username");
+        const emailError = document.getElementById("email");
+        const passwordError = document.getElementById("password");
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          usernameError.textContent = "";
+          emailError.textContent = "";
+          passwordError.textContent = "";
+
+          usernameError.style.display = "none";
+          emailError.style.display = "none";
+          passwordError.style.display = "none";
+
+          const username = form.username.value;
+          const email = form.email.value;
+          const password = form.password.value;
+
+          try {
+            const res = await fetch("users/register", {
+              method : "POST",
+              body : JSON.stringify({ username, email, password }),
+              headers : { "Content-Type" : "application/json" }
+            });
+          } catch (error) {
+            
+          }
+
+
+        });
+
+      </script>
+
+
       <%- include("partials/_footer.ejs") %>
