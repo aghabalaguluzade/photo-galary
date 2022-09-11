@@ -11,7 +11,6 @@ const userSchema = new Schema({
           trim : true,
           minLength : [4, "At least 4 characters"],
           lowercase : true,
-          validate : [validator.isAlphanumeric, "Only Alphanumeric characters"]
      },
      email : {
           type : String,

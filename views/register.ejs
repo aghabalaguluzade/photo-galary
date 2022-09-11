@@ -28,7 +28,7 @@
                       <div style="display: none;" class="alert alert-danger" id="username"></div>
                    </div>
                     <div class="col-md-12">
-                      <input class="form_control" placeholder="Your Email" type="email" name="email" />                          
+                      <input class="form_control" placeholder="Your Email" type="text" name="email" />                          
                     </div>
                     <div class="col-md-12">
                       <div style="display: none;" class="alert alert-danger" id="email"></div>
@@ -64,7 +64,6 @@
           usernameError.textContent = "";
           emailError.textContent = "";
           passwordError.textContent = "";
-
           usernameError.style.display = "none";
           emailError.style.display = "none";
           passwordError.style.display = "none";
@@ -74,15 +73,39 @@
           const password = form.password.value;
 
           try {
+              
             const res = await fetch("users/register", {
               method : "POST",
               body : JSON.stringify({ username, email, password }),
               headers : { "Content-Type" : "application/json" }
             });
-          } catch (error) {
-            
-          }
 
+            const data = await res.json();
+
+            if(data) {
+              if(data.username) {
+                usernameError.textContent = data.username;
+                usernameError.style.display = "block";
+              }
+              
+              if(data.email) {
+                emailError.textContent = data.email;
+                emailError.style.display = "block";
+              }
+              
+              if(data.password) {
+                passwordError.textContent = data.password;
+                passwordError.style.display = "block";
+              }
+            };
+
+            if(data.user) {
+              location.assign("/login");
+            }
+
+          } catch (error) {
+            console.log(`ERROR ${error}`);
+          };
 
         });
 
