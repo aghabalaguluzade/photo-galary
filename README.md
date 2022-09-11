@@ -15,6 +15,7 @@
  - Authorization
  - Cookie Concepts
  - Bcrypt
+ - Validation (Validator) 
  - File Uploads
  - Form Confirmation
  - Mail Sending
