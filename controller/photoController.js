@@ -30,7 +30,7 @@ const createPhoto = async (req,res) => {
                succeded : false,
                error
           });
-     }
+     };
 };
 
 const getAllPhotos = async (req,res) => {
@@ -63,8 +63,8 @@ const getPhoto = async (req,res) => {
                succeded : false,
                error
           });
-     }
-}
+     };
+};
 
 export {
      createPhoto,
