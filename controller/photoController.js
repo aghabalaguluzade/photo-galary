@@ -36,8 +36,8 @@ const createPhoto = async (req,res) => {
 const getAllPhotos = async (req,res) => {
      try {
           const photos = res.locals.user 
-          ? await Photo.find({ user : { $ne : res.locals.user._id } })
-          : await Photo.find({});
+          ? await Photo.find({ user : { $ne : res.locals.user._id } }).populate("user")
+          : await Photo.find({}).populate("user");
           res.status(200).render("photos", 
           { 
                photos,

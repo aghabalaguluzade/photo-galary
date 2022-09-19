@@ -25,8 +25,14 @@
                       <input class="form_control" placeholder="Your Email" type="email" name="email" />                          
                     </div>
                     <div class="col-md-12">
-                     <input class="form_control" placeholder="Your Password" type="password" name="password" />                          
+                      <div style="display: none;" class="alert alert-danger" id="email"></div>
                    </div>
+                    <div class="col-md-12">
+                     <input class="form_control" placeholder="Your Password" type="password" name="password" />
+                   </div>
+                   <div class="col-md-12">
+                    <div style="display: none;" class="alert alert-danger" id="password"></div>
+                  </div>
                     <div class="col-md-12">
                       <div class="group_form">
                         <button class="send_btn">Login</button>
@@ -40,4 +46,57 @@
         </div>
       <!-- end contact -->
   
+      <script>
+
+        const form = document.querySelector("form");
+        const emailError = document.getElementById("email");
+        const passwordError = document.getElementById("password");
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          emailError.textContent = '';
+          emailError.style.display = "none";
+          passwordError.textContent = '';
+          passwordError.style.display = "none";
+
+
+          const email = form.email.value;
+          const password = form.password.value;
+
+          
+            const res = await fetch("users/login", {
+              method : "POST",
+              body : JSON.stringify({ email, password }),
+              headers : { "Content-Type" : "application/json" }
+            });
+
+            const data = await res.json();
+
+            if(data) {
+
+              if(data.email || data.error) {
+                emailError.textContent = data.email;
+                emailError.textContent = data.error;
+                emailError.style.display = "block";
+              }
+              
+              if(data.password || data.error) {
+                passwordError.textContent = data.password;
+                passwordError.textContent = data.error;
+                passwordError.style.display = "block";
+              }
+
+              if(data.token) {
+                location.assign("/users/dashboard");
+              }
+            };
+
+
+
+
+        });
+
+      </script>
+
       <%- include("partials/_footer.ejs") %>

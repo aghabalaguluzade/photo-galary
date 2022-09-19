@@ -48,7 +48,10 @@ const loginUser = async (req,res) => {
                maxAge : 1000 * 60 * 60 * 24
           });
 
-          res.redirect("/users/dashboard");
+          res.status(200).json({
+               token
+          });
+     
      }else {
           res.status(401).json({
                succeded : false,
