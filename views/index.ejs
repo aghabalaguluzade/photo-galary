@@ -98,10 +98,10 @@
                </div>
             </div>
             <div class="tz-gallery">
+               <div class="row">
 
                <% for(photo of photos) { %>
 
-               <div class="row">
                   <div class="col-lg-4 col-md-6 ma_bottom30">
                            <div class="lightbox">
                               <img src="<%= photo.url %>" alt="<%= photo.name %>" />
@@ -115,10 +115,10 @@
                               </div>
                            </div>
                   </div>
+                  
+                  <% } %>
+                  
                </div>
-
-               <% } %>
-
             </div>
          </div>
       </div>
@@ -133,6 +133,9 @@
                      <div class="craig">
                        <h3><%= numOfPhotos %></h3>
                        <span>PHOTOGRAPHS</span>
+                       <ul class="social_icon">
+                        <li><a href="/photos"><i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
+                       </ul>
                      </div>
                   </div>
                </div>
@@ -145,6 +148,7 @@
                           <li><a href="Javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                           <li><a href="Javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                           <li><a href="Javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                          <li><a href="/users"><i class="fa fa-external-link-square" aria-hidden="true"></i></a></li>
                        </ul>
                      </div>
                   </div>
