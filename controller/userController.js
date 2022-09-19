@@ -4,9 +4,16 @@ import jwt from "jsonwebtoken";
 import Photo from "../models/photoModel.js";
 
 const createUser = async (req,res) => {
+
      try {
-          const user = await User.create(req.body);
+          const user = await User.create({
+               username : req.body.username,
+               email : req.body.email,
+               password : req.body.password
+          });
+
           res.status(201).json({ user : user._id });
+
      } catch (error) {
 
           let errors = {}

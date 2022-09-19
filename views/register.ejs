@@ -19,7 +19,7 @@
                 </div>
               </div>
               <div class="col-md-8 offset-md-2">
-                <form action="/users/register" method="POST" id="request" class="main_form">
+                <form action="/users/register" method="POST" id="request" class="main_form" enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-md-12">
                       <input class="form_control" placeholder="Your Username" type="text" name="username" /> 
@@ -82,7 +82,10 @@
 
             const data = await res.json();
 
+            console.log(data);
+
             if(data) {
+              console.log(data);
               if(data.username) {
                 usernameError.textContent = data.username;
                 usernameError.style.display = "block";
