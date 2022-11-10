@@ -1,5 +1,5 @@
 # Photo Galary NodeJS Project
-Photo Galary Project Link - https://photo-galary.herokuapp.com/
+Photo Galary Project Link - https://photo-galary.herokuapp.com
 
 ## Concepts I learned and used in this project
  - Node.JS CRUD Operations
